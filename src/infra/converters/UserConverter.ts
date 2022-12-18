@@ -1,13 +1,24 @@
-import { CreateUserRequest } from "@application/usecase/create-user/resources/CreateUserRequest";
 import { User } from "@infra/entities/User";
 
 export class UserConverter {
 
-  public static of(createUserRequest: CreateUserRequest): User {
+  static toPrisma(user: User) {
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      createdAt: user.createdAt
+    }
+  }
+
+  static toDomain(user: Partial<User>): User {
     return new User({
-      email: createUserRequest.email,
-      name: createUserRequest.name,
-      password: createUserRequest.password
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      createdAt: user.createdAt
     })
   }
 }

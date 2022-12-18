@@ -13,8 +13,8 @@ export class User {
 
   constructor(props: UserProps){
     this.props = props
-    this.props.id = randomUUID()
-    this.props.createdAt = new Date()
+    this.props.id = props.id || randomUUID()
+    this.props.createdAt = props.createdAt || new Date()
   }
 
   public get id(): string {

@@ -19,7 +19,7 @@ export class LoginService {
 
   public async execute(request: LoginRequest): Promise<LoginResponse>{
 
-    const user = await this.userRepository.findByEmail(request.email)
+    const user = await this.userRepository.findByEmail(request.email.toLowerCase())
 
     if(!user) {
       throw new AppError("Email or password invalid", 400);

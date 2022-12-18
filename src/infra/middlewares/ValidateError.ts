@@ -7,6 +7,7 @@ const ValidateError = ((err: Error, req: Request, res: Response, _: NextFunction
     return res.status(err.statusCode).json({
       status: 'error',
       message: err.message,
+      details: err.details
     });
   }
 

@@ -1,5 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
+import Joi from "joi";
+
 import { IUserRepository } from "@infra/repositories/IUserRepository";
 
 import { CreateUserRequest, CreateUserRequestProps } from "./resources/CreateUserRequest";
@@ -7,6 +9,9 @@ import { CreateUserResponse } from "./resources/CreateUserResponse";
 
 import { PasswordService } from "@application/services/PasswordService";
 import { AppError } from "@shared/exceptions/AppError";
+
+
+import { ValidateBody } from "@shared/helpers/ValidateBody";
 
 @injectable()
 export class CreateUserservice {
@@ -17,6 +22,8 @@ export class CreateUserservice {
     ){}
 
   public async execute(request: CreateUserRequestProps): Promise<CreateUserResponse> {
+
+    this.validateBody(request)
 
     const userExists = await this.userRepository.findByEmail(request.email)
 
@@ -38,6 +45,16 @@ export class CreateUserservice {
     )
 
     return CreateUserResponse.of(user)
+  }
+
+  private validateBody(request: CreateUserRequestProps){
+    const schema = Joi.object({
+      name: Joi.string().max(255).required(),
+      email: Joi.string().email().required().trim(),
+      password: Joi.string().min(8).required()
+    })
+
+    return ValidateBody.execute(request, schema)
   }
 }
 

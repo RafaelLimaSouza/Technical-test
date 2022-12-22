@@ -2,13 +2,13 @@ import { Request } from "express";
 
 import { inject, injectable } from "tsyringe";
 
-import { IUserRepository } from "@infra/repositories/IUserRepository";
+import { IUserRepository } from "../../../infra/repositories/IUserRepository";
 
 import { TokenService } from '../../services/TokenService'
-import { AuthorizationService } from "@application/services/AuthorizationService";
+import { AuthorizationService } from "../../../application/services/AuthorizationService";
 
 import { FindOneUserResponse } from './resources/FindOneUserResponse';
-import { AppError } from "@shared/exceptions/AppError";
+import { AppError } from "../../../shared/exceptions/AppError";
 
 @injectable()
 export class FindOneUserService {

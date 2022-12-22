@@ -2,16 +2,16 @@ import { inject, injectable } from "tsyringe";
 
 import Joi from "joi";
 
-import { TokenService } from "@application/services/TokenService";
+import { TokenService } from "../../../application/services/TokenService";
 
-import { IUserRepository } from "@infra/repositories/IUserRepository";
+import { IUserRepository } from "../../../infra/repositories/IUserRepository";
 
 import { LoginRequest } from "./resources/LoginRequest";
 import { LoginResponse } from "./resources/LoginResponse";
-import { AppError } from "@shared/exceptions/AppError";
-import { PasswordService } from "@application/services/PasswordService";
+import { AppError } from "../../../shared/exceptions/AppError";
+import { PasswordService } from "../../../application/services/PasswordService";
 
-import { ValidateBody } from "@shared/helpers/ValidateBody";
+import { ValidateBody } from "../../../shared/helpers/ValidateBody";
 
 @injectable()
 export class LoginService {

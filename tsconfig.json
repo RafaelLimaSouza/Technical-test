@@ -4,13 +4,9 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "baseUrl": ".",
-      "paths": {
-        "@infra/*": ["./src/infra/*"],
-        "@shared/*": ["./src/shared/*"],
-        "@application/*": ["./src/application/*"]
-      },
       "moduleResolution": "node",
       "experimentalDecorators": true,
-      "emitDecoratorMetadata": true
+      "emitDecoratorMetadata": true,
+      "resolveJsonModule": true
     }
   }

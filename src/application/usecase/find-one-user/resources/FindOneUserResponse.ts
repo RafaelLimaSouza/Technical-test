@@ -1,4 +1,4 @@
-import { User } from "@infra/entities/User";
+import { User } from "../../../../infra/entities/User";
 
 export class FindOneUserResponse {
   public static of(user: User){

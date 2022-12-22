@@ -8,11 +8,11 @@ import "express-async-errors";
 
 import express from 'express'
 
-import router from '@infra/routes'
+import router from './infra/routes'
 
-import '@shared/container'
+import './shared/container'
 
-import ValidateError from '@infra/middlewares/ValidateError'
+import ValidateError from './infra/middlewares/ValidateError'
 
 const app = express()
 

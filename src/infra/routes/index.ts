@@ -1,8 +1,8 @@
 import express, { Response } from 'express'
 
-import { CreateUserController } from "@application/usecase/create-user/CreateUserController"
-import { LoginController } from '@application/usecase/login/LoginController'
-import { FindOneUserController } from '@application/usecase/find-one-user/FindOneUserController'
+import { CreateUserController } from "../../application/usecase/create-user/CreateUserController"
+import { LoginController } from '../../application/usecase/login/LoginController'
+import { FindOneUserController } from '../../application/usecase/find-one-user/FindOneUserController'
 
 const Router = express.Router()
 

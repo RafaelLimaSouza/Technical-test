@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { AppError } from '@shared/exceptions/AppError';
+import { AppError } from '../../shared/exceptions/AppError';
 
 const ValidateError = ((err: Error, req: Request, res: Response, _: NextFunction) => {
   if (err instanceof AppError) {

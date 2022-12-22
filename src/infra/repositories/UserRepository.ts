@@ -1,8 +1,8 @@
-import { User } from "@infra/entities/User";
+import { User } from "../../infra/entities/User";
 import { IUserRepository } from "./IUserRepository";
-import { UserConverter } from "@infra/converters/UserConverter";
+import { UserConverter } from "../../infra/converters/UserConverter";
 
-import prisma from "@infra/database";
+import prisma from "../../infra/database";
 
 export class UserRepository implements IUserRepository {
 

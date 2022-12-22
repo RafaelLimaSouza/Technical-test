@@ -1,4 +1,4 @@
-import { BadRequest } from '@shared/exceptions/BadRequest'
+import { BadRequest } from '../../shared/exceptions/BadRequest'
 import { ObjectSchema } from 'joi'
 
 export class ValidateBody {
